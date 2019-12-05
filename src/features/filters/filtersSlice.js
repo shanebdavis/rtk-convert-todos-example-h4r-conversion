@@ -1,21 +1,18 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { useRedux } from 'hooks-for-redux'
 
-export const VisibilityFilters = {
-  SHOW_ALL: 'SHOW_ALL',
-  SHOW_COMPLETED: 'SHOW_COMPLETED',
-  SHOW_ACTIVE: 'SHOW_ACTIVE'
+export const filters = {
+  all: () => true,
+  completed: t => t.completed,
+  active: t => !t.completed
 }
 
-const filtersSlice = createSlice({
-  name: 'visibilityFilters',
-  initialState: VisibilityFilters.SHOW_ALL,
-  reducers: {
-    setVisibilityFilter(state, action) {
-      return action.payload
+export const [useFilters, { setVisibilityFilter }] = useRedux(
+  'visibilityFilters',
+  filters.all,
+  {
+    setVisibilityFilter: (__, filter) => {
+      console.log("setVis: " + filter)
+      return filters[filter] || filters.all
     }
   }
-})
-
-export const { setVisibilityFilter } = filtersSlice.actions
-
-export default filtersSlice.reducer
+)

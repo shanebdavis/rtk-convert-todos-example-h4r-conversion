@@ -1,14 +1,20 @@
 import React from 'react'
-import FilterLink from './FilterLink'
-import { VisibilityFilters } from './filtersSlice'
+import Link from './Link'
+import { filters, useFilters } from './filtersSlice'
 
-const Footer = () => (
-  <div>
+const Footer = () => {
+  const currentFilter = useFilters()
+  return <div>
     <span>Show: </span>
-    <FilterLink filter={VisibilityFilters.SHOW_ALL}>All</FilterLink>
-    <FilterLink filter={VisibilityFilters.SHOW_ACTIVE}>Active</FilterLink>
-    <FilterLink filter={VisibilityFilters.SHOW_COMPLETED}>Completed</FilterLink>
+    {Object.keys(filters).map((name) =>
+      <Link
+        key={name}
+        active={currentFilter === filters[name]}
+        filterName={name}>
+        {name}
+      </Link>
+    )}
   </div>
-)
+}
 
 export default Footer

@@ -1,9 +1,9 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import {setVisibilityFilter} from './filtersSlice'
 
-const Link = ({ active, children, setVisibilityFilter, filter }) => (
+const Link = ({ active, children, filterName }) => (
   <button
-    onClick={() => setVisibilityFilter(filter)}
+    onClick={() => {console.log("setv:" + filterName);setVisibilityFilter(filterName);}}
     disabled={active}
     style={{
       marginLeft: '4px'
@@ -12,12 +12,5 @@ const Link = ({ active, children, setVisibilityFilter, filter }) => (
     {children}
   </button>
 )
-
-Link.propTypes = {
-  active: PropTypes.bool.isRequired,
-  children: PropTypes.node.isRequired,
-  setVisibilityFilter: PropTypes.func.isRequired,
-  filter: PropTypes.string.isRequired
-}
 
 export default Link

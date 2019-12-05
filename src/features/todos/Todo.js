@@ -1,21 +1,14 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { toggleTodo } from './todosSlice'
 
-const Todo = ({ onClick, completed, text }) => (
+const Todo = ({ id, text, completed }) =>
   <li
-    onClick={onClick}
+    onClick={() => toggleTodo(id)}
     style={{
       textDecoration: completed ? 'line-through' : 'none'
     }}
   >
     {text}
   </li>
-)
-
-Todo.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  completed: PropTypes.bool.isRequired,
-  text: PropTypes.string.isRequired
-}
 
 export default Todo

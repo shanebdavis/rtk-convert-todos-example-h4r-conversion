@@ -1,16 +1,9 @@
 import React from 'react'
-import {setVisibilityFilter} from './filtersSlice'
+import { setFitler } from './filterSlice'
 
-const Link = ({ active, children, filterName }) => (
+export const Link = ({ active, children, filterName }) =>
   <button
-    onClick={() => {console.log("setv:" + filterName);setVisibilityFilter(filterName);}}
+    onClick={() => setFitler(filterName)}
     disabled={active}
-    style={{
-      marginLeft: '4px'
-    }}
-  >
-    {children}
-  </button>
-)
-
-export default Link
+    style={{marginLeft: '4px'}}
+  >{children}</button>

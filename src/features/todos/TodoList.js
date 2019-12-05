@@ -1,15 +1,11 @@
 import React from 'react'
-import Todo from './Todo'
-import { useFilters } from '../filters/filtersSlice'
+import { Todo } from './Todo'
+import { useFilter } from '../filters/filterSlice'
 import { useTodos } from './todosSlice'
 
-const TodoList = () =>
+export const TodoList = () =>
   <ul>
     {useTodos()
-      .filter(useFilters())
-      .map(todo => (
-        <Todo key={todo.id} {...todo} />
-      ))}
+      .filter(useFilter())
+      .map(todo => (<Todo key={todo.id} {...todo} />))}
   </ul>
-
-export default TodoList

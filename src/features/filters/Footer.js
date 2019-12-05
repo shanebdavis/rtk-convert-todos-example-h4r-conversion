@@ -1,20 +1,18 @@
 import React from 'react'
-import Link from './Link'
-import { filters, useFilters } from './filtersSlice'
+import { Link } from './Link'
+import { filterTypes, useFilter } from './filterSlice'
 
-const Footer = () => {
-  const currentFilter = useFilters()
+export const Footer = () => {
+  const currentFilter = useFilter()
   return <div>
     <span>Show: </span>
-    {Object.keys(filters).map((name) =>
+    {Object.keys(filterTypes).map((name) =>
       <Link
         key={name}
-        active={currentFilter === filters[name]}
+        active={currentFilter === filterTypes[name]}
         filterName={name}>
         {name}
       </Link>
     )}
   </div>
 }
-
-export default Footer

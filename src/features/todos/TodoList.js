@@ -7,5 +7,5 @@ export const TodoList = () =>
   <ul>
     {useTodos()
       .filter(useFilter())
-      .map(todo => (<Todo key={todo.id} {...todo} />))}
+      .map(todo => <Todo key={todo.id} {...todo} />)}
   </ul>

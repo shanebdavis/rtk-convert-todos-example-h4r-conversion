@@ -6,8 +6,8 @@ export const filterTypes = {
   active: t => !t.completed
 }
 
-export const [useFilter, { setFitler }] = useRedux(
+export const [useFilter, { setFilter }] = useRedux(
   'filters',
   filterTypes.all,
-  { setFitler: (__, filter) => filterTypes[filter] || filterTypes.all }
+  { setFilter: (__, filter) => filterTypes[filter] || filterTypes.all }
 )

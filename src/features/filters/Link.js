@@ -1,9 +1,9 @@
 import React from 'react'
-import { setFitler } from './filterSlice'
+import { setFilter } from './filterSlice'
 
 export const Link = ({ active, children, filterName }) =>
   <button
-    onClick={() => setFitler(filterName)}
+    onClick={() => setFilter(filterName)}
     disabled={active}
     style={{marginLeft: '4px'}}
   >{children}</button>

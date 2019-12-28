@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { addTodo } from './todosSlice'
+import { addTodo } from '../redux/todos'
 
 export const AddTodo = () => {
   const [todoText, setTodoText] = useState('')

@@ -1,7 +1,7 @@
 import React from 'react'
-import { Footer } from 'features/filters/Footer'
-import { AddTodo } from 'features/todos/AddTodo'
-import { TodoList } from 'features/todos/TodoList'
+import { Footer } from './Footer'
+import { AddTodo } from './AddTodo'
+import { TodoList } from './TodoList'
 
 export const App = () =>
   <div>

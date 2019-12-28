@@ -1,7 +1,7 @@
 import React from 'react'
 import { Todo } from './Todo'
-import { useFilter } from '../filters/filterSlice'
-import { useTodos } from './todosSlice'
+import { useFilter } from '../redux/filter'
+import { useTodos } from '../redux/todos'
 
 export const TodoList = () =>
   <ul>

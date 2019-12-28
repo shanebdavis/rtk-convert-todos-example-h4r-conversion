@@ -1,5 +1,5 @@
 import React from 'react'
-import { toggleTodo } from './todosSlice'
+import { toggleTodo } from '../redux/todos'
 
 export const Todo = ({ id, text, completed }) =>
   <li

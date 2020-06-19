@@ -1,4 +1,4 @@
-import { useRedux } from 'hooks-for-redux'
+import { createReduxModule } from 'hooks-for-redux'
 
 export const filterTypes = {
   all: () => true,
@@ -6,7 +6,7 @@ export const filterTypes = {
   active: t => !t.completed
 }
 
-export const [useFilter, { setFilter }] = useRedux(
+export const [useFilter, { setFilter }] = createReduxModule(
   'filters',
   filterTypes.all,
   { setFilter: (__, filter) => filterTypes[filter] || filterTypes.all }

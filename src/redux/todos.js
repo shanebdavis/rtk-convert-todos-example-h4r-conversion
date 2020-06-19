@@ -1,4 +1,4 @@
-import { useRedux } from 'hooks-for-redux'
+import { createReduxModule } from 'hooks-for-redux'
 
 let nextTodoId = 0
 
@@ -6,7 +6,7 @@ export const [
   useTodos,
   { addTodo, toggleTodo, resetTodos },
   todos
-] = useRedux('todos', [], {
+] = createReduxModule('todos', [], {
   addTodo: (todos, text) => [...todos, { text, completed: false, id: nextTodoId++ }],
   resetTodos: () => { nextTodoId = 0; return [] },
   toggleTodo: (todos, id) =>
